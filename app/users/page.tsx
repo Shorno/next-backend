@@ -1,4 +1,5 @@
 import {getUsers} from "@/app/lib/api";
+import Search from "@/app/ui/search";
 
 
 
@@ -6,8 +7,9 @@ export default async function Home() {
 
     const users = await getUsers();
     return (
-        <>
-            <div>Hello world</div>
+        <div className={"flex justify-center items-center flex-col"}>
+            <div className={"text-2xl font-bold my-10"}>Users</div>
+            <Search  placeholder={"search user"}/>
             {
                 users?.map((user) => (
                     <div key={user.id}>
@@ -15,6 +17,6 @@ export default async function Home() {
                     </div>
                 ))
             }
-        </>
+        </div>
     );
 }
