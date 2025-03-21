@@ -12,12 +12,12 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
     function handleSearch(name: string) {
         const params = new  URLSearchParams(searchParams)
-        if (name){
+        if (name.trim()){
             params.set("name", name)
         }else {
             params.delete("name")
         }
-        replace(`${pathname}?${params}`)
+        replace(`${pathname}?${params.toString()}`)
 
     }
 
@@ -32,6 +32,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
                 onChange={(e) => {
                     handleSearch(e.target.value);
                 }}
+                defaultValue={searchParams.get('name')?.toString()}
             />
             <SearchIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 " />
         </div>

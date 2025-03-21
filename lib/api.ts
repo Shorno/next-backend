@@ -10,8 +10,8 @@ interface ApiResponse {
     success: boolean
 }
 
-export async function getUsers(name? : string): Promise<User[]> {
-    const response = await fetch(`http://localhost:3000/api/users?name?=${name}`);
+export async function getUsers(name?: string): Promise<User[]> {
+    const response = await fetch(`http://localhost:3000/api/users?name=${name ?? ""}`);
 
     if (!response.ok) {
         throw new Error(`Failed to fetch users. Status: ${response.status}`);
