@@ -1,5 +1,5 @@
 import {getUsers} from "@/app/lib/api";
-import Search from "@/app/ui/search";
+import Search from "@/app/components/search";
 
 
 export default async function UsersPage(props: { searchParams?: Promise<{ name?: string }>}) {
